@@ -1,5 +1,8 @@
 # android-espresso-dagger-testing
 
+Sample application that shows how Dagger can be used to substitute dependencies with test doubles in Espresso tests to 
+have robust and reliable functional tests. Check [Reliable functional tests with Espresso and Dagger](http://blog.egorand.me/reliable-functional-tests-with-espresso-and-dagger/)
+
 License
 -------
 
