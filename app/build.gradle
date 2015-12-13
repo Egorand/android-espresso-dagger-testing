@@ -1,0 +1,54 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.android.databinding'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '23.0.2'
+
+    defaultConfig {
+        applicationId "me.egorand.weather"
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "me.egorand.weather.runner.WeatherTestRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+final APP_COMPAT_VERSION = '23.1.1'
+final DAGGER_VERSION = '2.0.2'
+final ESPRESSO_VERSION = '2.2.1'
+final ESPRESSO_RUNNER_VERSION = '0.4'
+
+dependencies {
+    compile "com.android.support:appcompat-v7:${APP_COMPAT_VERSION}"
+
+    compile "com.google.dagger:dagger:${DAGGER_VERSION}"
+    apt "com.google.dagger:dagger-compiler:${DAGGER_VERSION}"
+    provided 'org.glassfish:javax.annotation:10.0-b28'
+
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    compile 'io.reactivex:rxandroid:1.0.1'
+
+    androidTestCompile "com.android.support.test:runner:${ESPRESSO_RUNNER_VERSION}"
+    androidTestCompile "com.android.support.test:rules:${ESPRESSO_RUNNER_VERSION}"
+    androidTestCompile "com.android.support.test.espresso:espresso-core:${ESPRESSO_VERSION}"
+    androidTestApt "com.google.dagger:dagger-compiler:${DAGGER_VERSION}"
+}
+
+configurations.all {
+    resolutionStrategy.force "com.android.support:support-annotations:${APP_COMPAT_VERSION}"
+}

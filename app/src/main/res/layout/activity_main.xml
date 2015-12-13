@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="weatherData"
+            type="me.egorand.weather.data.WeatherData"/>
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context=".ui.activities.MainActivity">
+
+        <RelativeLayout
+            android:id="@+id/weather_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:visibility="invisible"
+            tools:visibility="visible">
+
+            <TextView
+                android:id="@+id/temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_xlarge"
+                android:text="@{weatherData.temperatureCelsius}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+                tools:text="10°"/>
+
+            <TextView
+                android:id="@+id/weather_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/temperature"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@{weatherData.weatherDate}"
+                tools:text="Friday, 4 Dec"/>
+
+            <TextView
+                android:id="@+id/city_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/weather_date"
+                android:layout_centerHorizontal="true"
+                android:text="@{weatherData.cityName}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                tools:text="München"/>
+
+            <TextView
+                android:id="@+id/weather_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/temperature"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:text="@{weatherData.weatherState}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                tools:text="Cloudy"/>
+
+            <TextView
+                android:id="@+id/weather_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/weather_state"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/margin_large"
+                android:text="@{weatherData.weatherDescription}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                tools:text="few clouds"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/weather_description"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    android:layout_marginRight="@dimen/margin_medium"
+                    android:text="@string/humidity"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
+
+                <TextView
+                    android:id="@+id/humidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{weatherData.humidity}"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    tools:text="71%"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@android:id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="invisible"
+            tools:visibility="visible"/>
+
+    </FrameLayout>
+
+</layout>

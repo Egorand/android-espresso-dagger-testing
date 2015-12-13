@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">Weather</string>
+    <string name="humidity">Humidity:</string>
+    <string name="search">Search</string>
+
+</resources>
