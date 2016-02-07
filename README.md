@@ -6,7 +6,7 @@ have robust and reliable functional tests. Check [Reliable functional tests with
 License
 -------
 
-    Copyright 2015 Egor Andreevici
+    Copyright 2015 - 2016 Egor Andreevici
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
